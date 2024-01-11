@@ -7,6 +7,7 @@ You have to give the Docker installed in your machine, clone this project, confi
 ```shell
 docker-compose up --build
 ```
+The aplication run in http://localhost:3000
 
 ## Needed variables
 
