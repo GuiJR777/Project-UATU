@@ -1,16 +1,18 @@
-FROM python:3.9.18-slim-bullseye
+FROM python:3.9-alpine
 
-RUN pip install --upgrade pip
+WORKDIR /app/backend
 
-COPY ./requirements.txt .
-RUN pip install -r requirements.txt
+COPY requirements.txt .
 
-RUN pip install gunicorn
+RUN pip install --no-cache-dir -r requirements.txt \
+    && pip install --no-cache-dir gunicorn
 
-COPY . /app
-WORKDIR /app
+COPY . .
+
+RUN python manage.py makemigrations
+RUN python manage.py migrate
 
 EXPOSE 8000
 
-COPY ./entrypoint.sh .
+COPY ./entrypoint.sh /app/entrypoint.sh
 ENTRYPOINT ["sh", "/app/entrypoint.sh"]

@@ -1,22 +1,47 @@
-version: '3.7'
+version: '3'
 
 services:
-  backend:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
     volumes:
-      - static:/static
+      - frontend:/app/build
+    depends_on:
+      - backend
+
+  backend:
     build:
       context: ./backend
     ports:
       - "8000:8000"
     depends_on:
       - redis
-  frontend:
-    build:
-      context: ./frontend
+      - db
+    expose:
+      - 8000
     volumes:
-      - frontend:/app/build
+      - static:/static
+    env_file:
+      - .env
+
   redis:
     image: "redis:alpine"
+    ports:
+      - "6379:6379"
+    expose:
+      - 6379
+
+  db:
+    image: postgres:13.0-alpine
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    expose:
+      - 5432
+
   nginx:
     build:
       context: ./nginx
@@ -28,19 +53,6 @@ services:
     depends_on:
       - backend
       - frontend
-  celery_worker:
-    build:
-      context: ./backend
-    command: celery -A backend worker --loglevel=info --concurrency 1 -E
-    depends_on:
-      - backend
-
-  celery_beat:
-    build:
-      context: ./backend
-    command: celery -A backend beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler --max-interval 10
-    depends_on:
-      - backend
 
 volumes:
   static:
