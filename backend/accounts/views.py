@@ -28,11 +28,12 @@ class MyTokenObtainPairView(TokenObtainPairView):
 @api_view(['POST'])
 def register_user(request):
     data = request.data
+    name = data.get("name").split(" ")
 
     try:
         user = User.objects.create(
-            first_name=data.get("first_name"),
-            last_name=data.get("last_name"),
+            first_name=name[0],
+            last_name=" ".join(name[1:]),
             username=data.get("email"),
             email=data.get("email"),
             password=make_password(data.get("password")),
@@ -43,7 +44,7 @@ def register_user(request):
 
     except Exception:
         message = {
-            "detail": "Email already registred"
+            "detail": "Email already registered"
         }
         return Response(message, status=status.HTTP_400_BAD_REQUEST)
 
@@ -51,6 +52,12 @@ def register_user(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_user_profile(request):
-    user = request.user
-    serializer = UserSerializer(user, many=False)
-    return Response(serializer.data)
+    try:
+        user = request.user
+        serializer = UserSerializer(user, many=False)
+        return Response(serializer.data)
+    except Exception:
+        message = {
+            "detail": "User not found"
+        }
+        return Response(message, status=status.HTTP_404_NOT_FOUND)
