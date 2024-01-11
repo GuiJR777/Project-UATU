@@ -1,8 +1,0 @@
-#email
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp-relay.brevo.com"                    # smtp-relay.sendinblue.com
-EMAIL_USE_TLS = False                               # False
-EMAIL_PORT = "587"                    # 587
-EMAIL_HOST_USER = "guilhermejramires@gmail.com"               # your email address
-EMAIL_HOST_PASSWORD = "JN04XUv9RH6fdtgj"       # your password
-DEFAULT_FROM_EMAIL = "<your default from email>"    # email ending with @sendinblue.com
