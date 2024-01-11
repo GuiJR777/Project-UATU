@@ -1,0 +1,47 @@
+version: '3.7'
+
+services:
+  backend:
+    volumes:
+      - static:/static
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+  frontend:
+    build:
+      context: ./frontend
+    volumes:
+      - frontend:/app/build
+  redis:
+    image: "redis:alpine"
+  nginx:
+    build:
+      context: ./nginx
+    volumes:
+      - static:/static
+      - frontend:/var/www/frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+      - frontend
+  celery_worker:
+    build:
+      context: ./backend
+    command: celery -A backend worker --loglevel=info --concurrency 1 -E
+    depends_on:
+      - backend
+
+  celery_beat:
+    build:
+      context: ./backend
+    command: celery -A backend beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler --max-interval 10
+    depends_on:
+      - backend
+
+volumes:
+  static:
+  frontend:
