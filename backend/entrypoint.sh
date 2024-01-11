@@ -1,6 +1,9 @@
 #!/bin/sh
 
-gunicorn backend.wsgi:application --bind 0.0.0.0:8000 --workers 4 --threads 4 &
+python manage.py makemigrations
+python manage.py migrate --no-input
+
+gunicorn backend.wsgi:application --bind 0.0.0.0:8000 &
 
 celery -A backend worker --loglevel=info --concurrency 1 -E &
 

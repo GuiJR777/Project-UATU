@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
   frontend:
@@ -10,6 +10,8 @@ services:
       - frontend:/app/build
     depends_on:
       - backend
+    networks:
+    - backend
 
   backend:
     build:
@@ -22,9 +24,11 @@ services:
     expose:
       - 8000
     volumes:
-      - static:/static
+      - static:/vol/static
     env_file:
       - .env
+    networks:
+    - backend
 
   redis:
     image: "redis:alpine"
@@ -32,6 +36,8 @@ services:
       - "6379:6379"
     expose:
       - 6379
+    networks:
+    - backend
 
   db:
     image: postgres:13.0-alpine
@@ -46,14 +52,19 @@ services:
     build:
       context: ./nginx
     volumes:
-      - static:/static
+      - static:/vol/static
       - frontend:/var/www/frontend
     ports:
       - "80:80"
     depends_on:
       - backend
       - frontend
+    networks:
+    - backend
 
 volumes:
   static:
   frontend:
+
+networks:
+  backend:
