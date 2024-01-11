@@ -7,27 +7,27 @@ from .views import (
 
 urlpatterns = [
     path(
-        'monitorings/',
+        '/',
         MonitoringListView.as_view(),
         name='monitoring-list'
     ),
     path(
-        'monitorings/<int:pk>/',
+        '/<int:pk>/',
         MonitoringDetailView.as_view(),
         name='monitoring-detail'
     ),
     path(
-        'monitorings/create/',
+        '/create/',
         MonitoringListCreateView.as_view(),
         name='monitoring-create'
     ),
     path(
-        'monitorings/<int:pk>/update/',
+        '/<int:pk>/update/',
         MonitoringDetailView.as_view(),
         name='monitoring-update'
     ),
     path(
-        'monitorings/<int:pk>/delete/',
+        '/<int:pk>/delete/',
         MonitoringDetailView.as_view(),
         name='monitoring-delete'
     ),

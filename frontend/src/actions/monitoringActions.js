@@ -25,7 +25,7 @@ export const deleteMonitoring = (monitoringId) => async (dispatch, getState) => 
       },
     };
 
-    await axios.delete(`http://127.0.0.1:8000/app/monitorings/${monitoringId}/delete`, config);
+    await axios.delete(`http://127.0.0.1:8000/api/monitorings/${monitoringId}/delete`, config);
 
     dispatch({ type: MONITORING_DELETE_SUCCESS });
   } catch (error) {
@@ -55,7 +55,7 @@ export const editMonitoring = (id, updatedData) => async (dispatch, getState) =>
       },
     };
 
-    const { data } = await axios.put(`http://127.0.0.1:8000/app/monitorings/${id}/update/`, updatedData, config);
+    const { data } = await axios.put(`http://127.0.0.1:8000/api/monitorings/${id}/update/`, updatedData, config);
 
     dispatch({
       type: MONITORING_EDIT_SUCCESS,
@@ -90,7 +90,7 @@ export const createMonitoring = (monitorData) => async (dispatch, getState) => {
 
     monitorData.intervalo_atualizacao = monitorData.intervalo_atualizacao * 60;
 
-    const response = await axios.post('http://127.0.0.1:8000/app/monitorings/create/', monitorData, config);
+    const response = await axios.post('http://127.0.0.1:8000/api/monitorings/create/', monitorData, config);
 
     dispatch({
       type: CREATE_MONITORING_SUCCESS,

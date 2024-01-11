@@ -19,7 +19,7 @@ export const listPriceMonitors = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get('http://127.0.0.1:8000/app/monitorings', config);
+    const { data } = await axios.get('http://127.0.0.1:8000/api/monitorings', config);
 
     dispatch({ type: PRICE_MONITOR_LIST_SUCCESS, payload: data });
   } catch (error) {
