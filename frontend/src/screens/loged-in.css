@@ -1,0 +1,129 @@
+.loged-in-container {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .loged-in-container01 {
+    flex: 0 0 auto;
+    width: var(--dl-size-size-maxwidth);
+    display: flex;
+    position: relative;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+  .loged-in-container02 {
+    flex: 1;
+    width: 10vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .loged-in-container03 {
+    flex: 10;
+    width: 90vw;
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ffffff;
+    margin-top: 120px;
+  }
+  .loged-in-container04 {
+    flex: 2;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .loged-in-text {
+    align-self: center;
+  }
+  .loged-in-container05 {
+    flex: 10;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .loged-in-container06 {
+    flex: 0 0 auto;
+    width: 800px;
+    height: 600px;
+    display: flex;
+    align-self: center;
+    align-items: flex-start;
+    border-color: #2d8a8c;
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 20px;
+    flex-direction: column;
+    margin: 48px;
+  }
+  .loged-in-container07 {
+    flex: 1;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .loged-in-container08 {
+    flex: 11;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    overflow-y: scroll;
+    justify-content: center;
+  }
+  .loged-in-monitors {
+    flex: 1;
+    align-self: flex-start;
+    padding-left: 16px;
+    padding-right: 16px;
+    align-items: center;
+    justify-content: center;
+  }
+  .loged-in-container09 {
+    flex: 1;
+    width: 10vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .logout-button {
+    align-self: flex-end;
+    margin-top: 48px;
+    border-radius: 16px;
+    background-color: #2d8a8c;
+    border: 1px solid #2d8a8c;
+  }
+  .logout-button:hover {
+    transform: scale(0.95);
+    background-color: #2d8a8caa;
+  }
+  .back-button {
+    align-self: flex-end;
+    margin-top: 48px;
+    color: #2d8a8c;
+  }
+  .add-button {
+    margin: 16px 8px;
+    background: none;
+    color: #2d8a8c;
+    border-color: #2d8a8c;
+    border-radius: 16px;
+  }
+  .add-button:hover {
+    transform: scale(0.95);
+    background-color: #2d8a8caa;
+  }

@@ -1,0 +1,98 @@
+.price-monitor-card-container {
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    color: white;
+    margin: 16px 0px;
+    align-items: center;
+  }
+  .price-monitor-card-li {
+    text-align: center;
+  }
+  .price-monitor-card-container1 {
+    flex: 0 0 auto;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #2d8a8c;
+    padding: 16px;
+    border-radius: 16px;
+  }
+  .price-monitor-card-company-logo {
+    width: 48px;
+    object-fit: cover;
+    margin-right: 16px;
+  }
+  .price-monitor-card-company-ticker {
+    font-size: 48px;
+    margin-right: 16px;
+  }
+  .price-monitor-card-actual-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    margin-right: 16px;
+    min-width: 260px;
+  }
+  .price-monitor-card-up-or-down{
+    font-size: 48px;
+    margin-right: 16px;
+  }
+  #UpOrDown{
+    margin-left: 16px;
+    font-size: 48px;
+  }
+  i.fa-caret-up {
+    color: greenyellow;
+  }
+  i.fa-caret-down {
+    color: red;
+  }
+  .price-monitor-card-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .price-monitor-card-icon2 {
+    width: 24px;
+    height: 24px;
+  }
+  .price-monitor-card-root-class-name {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  .price-monitor-card-root-class-name1 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  .price-monitor-card-delete {
+    border-width: 0px;
+    background-color: transparent;
+    font-size:x-large;
+    padding: 0px;
+  }
+  .price-monitor-card-edit {
+    border-width: 0px;
+    padding: 0px;
+    background-color: transparent;
+    font-size:x-large;
+  }
+  .actions-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 32px;
+    width: 100px;
+  }
+
+  .button:hover {
+    transform: scale(0.8);
+    background-color: #2d8a8caa;
+  }
+  .price-monitor-limits {
+    margin-left: 16px;
+  }
+  .price-monitor-limits span {
+    font-size: 16px;
+  }
