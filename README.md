@@ -1,4 +1,4 @@
-# Django Stock Price Monitoring
+# Project UATU
 Project create for technical test of Innoa
 
 ## How to build
